@@ -52,6 +52,8 @@ class VisionGuardian:
         return frame
 
     def _update_motion_list(self, frame):
+        if len(self.motion_list) == 0:
+            self.motion_list.append("Motion List:")
         if self.full_screen_motion_sensor.motion_detected and not self.record:
             self.motion_list.append(time.strftime("%Y%m%d_%H%M%S"))
         for idx, text in enumerate(self.motion_list):
